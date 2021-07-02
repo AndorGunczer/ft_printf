@@ -6,7 +6,7 @@
 /*   By: agunczer <agunczer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/25 09:32:49 by agunczer          #+#    #+#             */
-/*   Updated: 2021/07/02 10:40:02 by agunczer         ###   ########.fr       */
+/*   Updated: 2021/07/02 12:55:41 by agunczer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	num_count(long n);
 static char	*assigner(long n, int i, int j, char *str);
 
-char	*ft_itoa(long n)
+char	*ft_itoa_long(long n)
 {
 	int		i;
 	int		digits;

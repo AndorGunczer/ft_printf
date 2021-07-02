@@ -6,7 +6,7 @@
 /*   By: agunczer <agunczer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 14:32:15 by agunczer          #+#    #+#             */
-/*   Updated: 2021/07/01 10:42:35 by agunczer         ###   ########.fr       */
+/*   Updated: 2021/07/02 13:18:07 by agunczer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,16 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int     ft_printf(const char *str, ...);
-void    ft_detertype(const char *str, void *arg, int *i);
+char    ft_detertype(const char *str, void *arg, int *i);
 void	ft_puthexlower_fd(int n, int fd);
 void	ft_puthexupper_fd(int n, int fd);
 void	ft_puthexpointer_fd(long n, int fd);
 void	ft_putunsnbr_fd(unsigned int n, int fd);
+int    ft_flaghandle(char *str, void *arg, int *i);
+void    ft_spechandle(char *str, void *arg, int *i);
+int 	ft_widthcounter(char *str, void *arg, int *i);
+char	*ft_itoa_long(long n);
+int 	ft_deterprec(char *str, int *i);
+void    ft_handletype(const char *str, void *arg, int *i);
 
 #endif

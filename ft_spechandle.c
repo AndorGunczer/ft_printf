@@ -6,7 +6,7 @@
 /*   By: agunczer <agunczer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 17:57:30 by agunczer          #+#    #+#             */
-/*   Updated: 2021/07/02 11:54:38 by agunczer         ###   ########.fr       */
+/*   Updated: 2021/07/02 13:20:04 by agunczer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,63 @@
     
 // }
 
+#include "libftprintf.h"
+
+static void     ft_putwidth(char c, int count);
+
 void    ft_spechandle(char *str, void *arg, int *i)
 {
     int flags;
     int field_width;
     int width;
+    int precision;
 
-    flags = ft_flaghandle((str + *i), arg, i);
+    flags = ft_flaghandle(str, arg, i);
     field_width = ft_atoi((str + *i));
-    width = ft_widthhandle(str, arg, i);
+    width = ft_widthcounter(str, arg, i);
+    precision = ft_deterprec(str, i);
     
+    if (flags == 2)
+    {
+        ft_handletype(str, arg, i);
+        ft_putwidth(' ', width - field_width); 
+    }
+    else if (flags == 1)
+    {
+        ft_putwidth('0', width - field_width);
+        ft_handletype(str, arg, i);
+    }
+    else if (flags == 0)
+    {
+        ft_putwidth(' ', width - field_width);
+        ft_handletype(str, arg, i);
+    }
+}
+
+// static void    handler()
+// {
+//     if (flags == 2)
+//     {
+//         ft_handletype(str, arg, i);
+//         ft_putwidth(' ', width - field_width); 
+//     }
+//     else if (flags == 1)
+//     {
+//         ft_putwidth('0', width - field_width);
+//         ft_handletype();
+//     }
+//     else if (flags == 0)
+//     {
+//         ft_putwidth(' ', width - field_width);
+//         ft_handletype();
+//     }
+// }
+
+static void     ft_putwidth(char c, int count)
+{
+    while (count >= 0)
+    {
+        ft_putchar_fd(c, 1);
+        count--;
+    }
 }
