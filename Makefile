@@ -6,7 +6,7 @@
 #    By: agunczer <agunczer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/29 14:00:18 by agunczer          #+#    #+#              #
-#    Updated: 2021/06/30 16:37:33 by agunczer         ###   ########.fr        #
+#    Updated: 2021/07/01 10:49:01 by agunczer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = libftprintf.a
 all: ${NAME}
 	
 ${NAME}: ${SRC}
-	gcc -Wall -Wextra -Werror -c $^
+	gcc -c $^
 	ar -rc libftprintf.a *.o
 
 clean:

@@ -5,30 +5,43 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: agunczer <agunczer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 13:30:54 by agunczer          #+#    #+#             */
-/*   Updated: 2021/06/30 17:05:01 by agunczer         ###   ########.fr       */
+/*   Created: 2021/07/02 11:26:13 by agunczer          #+#    #+#             */
+/*   Updated: 2021/07/02 11:51:02 by agunczer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include "libftprintf.h"
-#include "libft/libft.h"
+static int  ft_isformat(char *str);
 
-void    ft_detertype(const char *str, void *arg)
+char    ft_detertype(const char *str, void *arg, int *i)
 {
-    str++;
-    if (*str == 'c')
-        ft_putchar_fd((char)arg, 1);
-    else if (*str == 's')
-        ft_putstr_fd((char *)arg, 1);
-    else if (*str == 'p')
-        ft_puthexpointer_fd((long)arg, 1);
-    else if (*str == 'd' || *str == 'i')
-        ft_putnbr_fd((int)arg, 1);
-    else if (*str == 'x')
-        ft_puthexlower_fd((int)arg, 1);
-    else if (*str == 'X')
-        ft_puthexupper_fd((int)arg, 1);
-    else if (*str == 'u')
-        ft_putunsnbr_fd((unsigned int)arg, 1);
+    int counter;
+
+    counter = *i;
+    while(*(str + counter) != isformat(*(str + counter)))
+        counter++;
+    if (*(str + *i) == 'c')
+        return ('c');
+    else if (*(str + *i) == 's')
+        return ('s');
+    else if (*(str + *i) == 'p')
+        return ('p');
+    else if (*(str + *i) == 'd')
+        return ('d');
+    else if (*(str + *i) == 'i')
+        return ('i');
+    else if (*(str + *i) == 'x')
+        return ('x');
+    else if (*(str + *i) == 'X')
+        return ('X');
+    else if (*(str + *i) == 'u')
+        return ('u');
+}
+
+static int  ft_isformat(char *str)
+{
+    if (*str == 'd' || *str == 'i' || *str == 'c' || *str == 's' || *str == 'u'
+    || *str == 'p' || *str == 'x' || *str == 'X')
+        return (1);
+    else
+        return (0);
 }
