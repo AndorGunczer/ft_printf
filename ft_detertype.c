@@ -6,7 +6,7 @@
 /*   By: agunczer <agunczer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/02 11:26:13 by agunczer          #+#    #+#             */
-/*   Updated: 2021/07/03 11:37:27 by agunczer         ###   ########.fr       */
+/*   Updated: 2021/07/03 16:43:04 by agunczer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char    ft_detertype(const char *str, void *arg, int *i)
     int counter;
 
     counter = *i;
-    while(*(str + counter) != ft_isformat(str + counter))
+    while(ft_isformat(str + counter) != 1)
         counter++;
     if (*(str + counter) == 'c')
         return ('c');

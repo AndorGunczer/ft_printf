@@ -6,7 +6,7 @@
 /*   By: agunczer <agunczer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 17:57:30 by agunczer          #+#    #+#             */
-/*   Updated: 2021/07/03 15:49:06 by agunczer         ###   ########.fr       */
+/*   Updated: 2021/07/03 16:49:15 by agunczer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,21 +50,21 @@ void    ft_spechandle(char *str, void *arg, int *i)
     if (flags == 2)
     {
         ft_handletype(str, arg, i);
-        ft_putwidth(' ', width - field_width); 
+        ft_putwidth(' ', field_width - width); 
     }
     else if (flags == 1)
     {
-        ft_putwidth('0', width - field_width);
+        ft_putwidth('0', field_width - width);
         ft_handletype(str, arg, i);
     }
     else if (flags == 0)
     {
-        // ft_putwidth(' ', width - field_width);
+        ft_putwidth(' ', field_width - width);
+        ft_handletype(str, arg, i);
+        ft_putchar_fd('\n', 1);
         ft_putnbr_fd(width, 1);
         ft_putchar_fd('\n', 1);
         ft_putnbr_fd(field_width, 1);
-        ft_putchar_fd('\n', 1);
-        ft_handletype(str, arg, i);
     }
 }
 
@@ -89,7 +89,7 @@ void    ft_spechandle(char *str, void *arg, int *i)
 
 static void     ft_putwidth(char c, int count)
 {
-    while (count >= 0)
+    while (count > 0)
     {
         ft_putchar_fd(c, 1);
         count--;
