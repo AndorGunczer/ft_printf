@@ -6,7 +6,7 @@
 /*   By: agunczer <agunczer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 13:26:50 by agunczer          #+#    #+#             */
-/*   Updated: 2021/07/02 16:55:43 by agunczer         ###   ########.fr       */
+/*   Updated: 2021/07/03 11:31:10 by agunczer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,14 @@ int    ft_flaghandle(char *str, void *arg, int *i)
 {
     int flag;
 
-    (*i)++;
+    while (*(str + *i) != '-' && ft_isdigit(*(str + *i)) != 1 && ft_isformat(str + *i) != 1)
+        (*i)++;
     if (contains_flag((str + *i), '-') == 1)
         flag = 2;
     else if (contains_flag((str + *i), '0') == 1)
         flag = 1;
     else
         flag = 0;
-    while (*(str + *i) != '.' && ft_isdigit(*(str + *i)) != 1 && ft_isformat(str + *i) != 1)
-        (*i)++;
     return(flag);
 }
 

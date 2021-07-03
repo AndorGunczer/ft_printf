@@ -6,7 +6,7 @@
 /*   By: agunczer <agunczer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 17:57:30 by agunczer          #+#    #+#             */
-/*   Updated: 2021/07/02 13:20:04 by agunczer         ###   ########.fr       */
+/*   Updated: 2021/07/03 15:49:06 by agunczer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,11 @@ void    ft_spechandle(char *str, void *arg, int *i)
     }
     else if (flags == 0)
     {
-        ft_putwidth(' ', width - field_width);
+        // ft_putwidth(' ', width - field_width);
+        ft_putnbr_fd(width, 1);
+        ft_putchar_fd('\n', 1);
+        ft_putnbr_fd(field_width, 1);
+        ft_putchar_fd('\n', 1);
         ft_handletype(str, arg, i);
     }
 }

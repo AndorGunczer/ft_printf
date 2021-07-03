@@ -30,8 +30,8 @@ int ft_widthcounter(char *str, void *arg, int *i)
         width = 2 + ft_strlen(ft_itoa_long((long)arg));
     if (type == 'u')
         width = ft_strlen(ft_itoa_long((unsigned int)arg));
-    while (*(str + *i) != '.' && ft_isformat(str + *i) != 1)
-        (*i)++;
+    // while (*(str + *i) != '.' && ft_isformat(str + *i) != 1)
+    //     (*i)++;
     return (width);
 }
 

@@ -14,9 +14,12 @@
 #include "libftprintf.h"
 #include "libft/libft.h"
 
-void    ft_handletype(const char *str, void *arg, int *i)
+static int  ft_isformat(char *str);
+
+void    ft_handletype(char *str, void *arg, int *i)
 {
-    (*i)++;
+    while (ft_isformat((str + *i)) != 1)
+        (*i)++;
     if (*(str + *i) == 'c')
         ft_putchar_fd((char)arg, 1);
     else if (*(str + *i) == 's')
@@ -31,4 +34,13 @@ void    ft_handletype(const char *str, void *arg, int *i)
         ft_puthexupper_fd((int)arg, 1);
     else if (*(str + *i) == 'u')
         ft_putunsnbr_fd((unsigned int)arg, 1);
+}
+
+static int  ft_isformat(char *str)
+{
+    if (*str == 'd' || *str == 'i' || *str == 'c' || *str == 's' || *str == 'u'
+    || *str == 'p' || *str == 'x' || *str == 'X')
+        return (1);
+    else
+        return (0);
 }

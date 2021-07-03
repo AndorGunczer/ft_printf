@@ -6,7 +6,7 @@
 /*   By: agunczer <agunczer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 12:08:55 by agunczer          #+#    #+#             */
-/*   Updated: 2021/07/02 13:20:30 by agunczer         ###   ########.fr       */
+/*   Updated: 2021/07/03 11:21:21 by agunczer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ int ft_printf(const char *str, ...)
     va_start(ap, str);
     i = 0;
     ptr = &i;
-    while (*(str + i) != '\0')
+    while (*(str + *ptr) != '\0')
     {
-        if (*(str + i) == '%')
+        if (*(str + *ptr) == '%')
         {
             arg = va_arg(ap, void*);
             ft_spechandle((char *)str, arg, ptr);
         }
         else
-            ft_putchar_fd(*(str + i), 1);
-        i++;
+            ft_putchar_fd(*(str + *ptr), 1);
+        (*ptr)++;
     }
     return (1);
 }
