@@ -6,7 +6,7 @@
 /*   By: agunczer <agunczer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 13:26:50 by agunczer          #+#    #+#             */
-/*   Updated: 2021/07/05 09:37:35 by agunczer         ###   ########.fr       */
+/*   Updated: 2021/07/05 11:42:02 by agunczer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ int    ft_flaghandle(char *str, void *arg, int *i)
         flag = 1;
     else
         flag = 0;
-    (*i)++;
+    if (*(str + *i) == '-' || *(str + *i) == '0')
+        (*i)++;
     return(flag);
 }
 
