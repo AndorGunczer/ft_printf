@@ -6,11 +6,12 @@
 /*   By: agunczer <agunczer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 13:26:50 by agunczer          #+#    #+#             */
-/*   Updated: 2021/07/03 11:31:10 by agunczer         ###   ########.fr       */
+/*   Updated: 2021/07/05 09:37:35 by agunczer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include <stdio.h>
 
 static int  ft_isformat(char *str);
 static int  contains_flag(char *str, char c);
@@ -27,6 +28,7 @@ int    ft_flaghandle(char *str, void *arg, int *i)
         flag = 1;
     else
         flag = 0;
+    (*i)++;
     return(flag);
 }
 
@@ -36,9 +38,8 @@ static int  contains_flag(char *str, char c)
     {
         if (*str == c)
             return (1);
-        str++;
     }
-    if (*str == '0')
+    if (*str == c)
         return (1);
     return (0);
 }

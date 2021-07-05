@@ -6,7 +6,7 @@
 /*   By: agunczer <agunczer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/30 17:57:30 by agunczer          #+#    #+#             */
-/*   Updated: 2021/07/03 16:49:15 by agunczer         ###   ########.fr       */
+/*   Updated: 2021/07/05 09:28:34 by agunczer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 // }
 
 #include "libftprintf.h"
+#include <stdio.h>
 
 static void     ft_putwidth(char c, int count);
 
@@ -46,7 +47,7 @@ void    ft_spechandle(char *str, void *arg, int *i)
     field_width = ft_atoi((str + *i));
     width = ft_widthcounter(str, arg, i);
     precision = ft_deterprec(str, i);
-    
+
     if (flags == 2)
     {
         ft_handletype(str, arg, i);
@@ -61,10 +62,10 @@ void    ft_spechandle(char *str, void *arg, int *i)
     {
         ft_putwidth(' ', field_width - width);
         ft_handletype(str, arg, i);
-        ft_putchar_fd('\n', 1);
-        ft_putnbr_fd(width, 1);
-        ft_putchar_fd('\n', 1);
-        ft_putnbr_fd(field_width, 1);
+        // ft_putchar_fd('\n', 1);
+        // ft_putnbr_fd(width, 1);
+        // ft_putchar_fd('\n', 1);
+        // ft_putnbr_fd(field_width, 1);
     }
 }
 
